@@ -1,0 +1,31 @@
+﻿
+<h2>Students</h2>
+@*@Ajax.ActionLink("All", "All", new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "Students", InsertionMode = InsertionMode.Replace })*@
+
+<div id="Students" style="font-family:Arial">
+
+
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        LoadData();
+    })
+
+    function LoadData() {
+        $.ajax({
+            url: "/Home/All",
+            method: "GET",
+            
+            success: function (data) {
+                $("div#Students").html(data)
+                console.log(data);
+            },
+            error: function (err) {
+
+            }
+        })
+    }
+</script>
